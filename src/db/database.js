@@ -2,14 +2,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/fireba
 import { getDatabase, ref, set, get, child, push, remove, update, goOnline, goOffline, onValue } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCIVtRcMXG1fvsJycs1nvgyNrc2kkEjgKQ",
-  authDomain: "baly-tracker.firebaseapp.com",
-  databaseURL: "https://baly-tracker-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "baly-tracker",
-  storageBucket: "baly-tracker.firebasestorage.app",
-  messagingSenderId: "769210453494",
-  appId: "1:769210453494:web:89ccc1f8b87c5a02944bd7",
-  measurementId: "G-QCKLEXSJYZ"
+  apiKey: "AIzaSyDBTldat1wMxvFFx07uaDVJp5Sz44SUZa8",
+  authDomain: "nahith-b8837.firebaseapp.com",
+  databaseURL: "https://nahith-b8837-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "nahith-b8837",
+  storageBucket: "nahith-b8837.firebasestorage.app",
+  messagingSenderId: "467874345001",
+  appId: "1:467874345001:web:0372c76df7369ebc1c6c38"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -200,7 +199,6 @@ export const Database = {
   },
 
   // ── DAILY BALANCES (لقطة الصباح الجديدة) ───────
-  // كل يوم نسجّل: رصيد بلي + رصيد زين كاش الفعليين من التطبيق
   async addDailyBalance(data) {
     const newRef = push(ref(db, 'daily_balances'));
     set(newRef, data);
@@ -216,7 +214,6 @@ export const Database = {
   },
 
   // ── ZAIN TRANSACTIONS (محفظة زين كاش المستقلة) ─
-  // type: 'credit' (إيداع/مكافأة) | 'debit' (مصروف من زين)
   async addZainTransaction(data) {
     const newRef = push(ref(db, 'zain_transactions'));
     set(newRef, data);
